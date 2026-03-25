@@ -6,23 +6,19 @@ import dev.isxander.yacl3.impl.controller.DropdownStringControllerBuilderImpl;
 import net.fabricmc.loader.api.FabricLoader;
 import net.irisshaders.iris.Iris;
 import net.irisshaders.iris.gui.screen.ShaderPackScreen;
-import net.irisshaders.iris.parsing.IrisOptions;
-import net.irisshaders.iris.shaderpack.option.ShaderPackOptions;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ConfirmLinkScreen;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 
-import net.caffeinemc.mods.sodium.client.gui.SodiumOptionsGUI;
-import net.caffeinemc.mods.sodium.client.gui.options.OptionPage;
 import net.minecraft.util.Util;
 
 import java.io.IOException;
 import java.util.Optional;
 
 public class IrisCompat {
-    public static Optional<ConfigCategory> replaceShaderPackPage(SodiumOptionsGUI optionsGUI, OptionPage page) {
-        if (page.getName().contains(Text.translatable("options.iris.shaderPackSelection"))) {
+    public static Optional<ConfigCategory> replaceShaderPackPage(Text pageName) {
+        if (pageName.contains(Text.translatable("options.iris.shaderPackSelection"))) {
             var shaderPackList = Option.<String>createBuilder()
                     .name(Text.translatable("options.iris.selectedShaderPack"))
                     .description(OptionDescription.of(Text.translatable("options.iris.selectedShaderPack.description")))
@@ -99,9 +95,5 @@ public class IrisCompat {
         }
 
         return Optional.empty();
-    }
-
-    public interface ShaderPageHolder {
-        OptionPage getShaderPage();
     }
 }

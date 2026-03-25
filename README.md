@@ -1,20 +1,50 @@
-[![](https://cdn.imb11.dev/xander.png)](https://discord.gg/TKzfYvmcYh)
-[![](https://cdn.imb11.dev/mineblock%20badge_64h.png)](https://discord.imb11.dev/)
-# Xander's Sodium Options
+# Xander's Sodium Options (Revived)
 
-Xander's Sodium Options replaces the Sodium options GUI with a Minecraft-style alternative powered by Yet Another Config Lib.
+A revival of [isXander/xanders-sodium-options](https://github.com/isXander/xanders-sodium-options), which was archived after Sodium 0.8.7 overhauled its internal options API. This fork updates the mod to work with the new Sodium API and will continue development going forward.
 
-It has a wide range of support for various mods which integrate with Sodium, such as:
--   [Iris](https://modrinth.com/mod/iris)
--   [Sodium Extra](https://modrinth.com/mod/sodium-extra)
--   [More Culling](https://modrinth.com/mod/moreculling)
--   [Cull Less Leaves](https://modrinth.com/mod/cull-less-leaves)
--   [EntityViewDistance](https://modrinth.com/mod/entity-view-distance)
+**Original authors:** [isXander](https://github.com/isXander), [IMB11](https://github.com/IMB11)
 
-Any other mods which integrate with Sodium's GUI will *likely work* as well. If you encounter any issues, please [report them here!](https://github.com/isXander/xanders-sodium-options/issues)
+---
 
-### Screenshots
-![General Tab](https://cdn.modrinth.com/data/sTkQBVyo/images/551cfdb3c962d064b2a1d5bcc475247519104d00.png)
-![Shader Packs Tab](https://cdn.modrinth.com/data/cached_images/bd03b435cd015724aba603dbe234c57e685b576b_0.webp)
-![Sodium Extras Tab](https://cdn.modrinth.com/data/sTkQBVyo/images/5b87a021c1c93e1330f0eb64365f93347611a169.png)
-![More Culling Tab](https://cdn.modrinth.com/data/sTkQBVyo/images/24af3345b35cae3b2548fcb1518d23dc7e0f54a7.png)
+## What it does
+
+Xander's Sodium Options replaces Sodium's settings screen with a Minecraft-style alternative powered by [Yet Another Config Lib (YACL)](https://modrinth.com/mod/yacl). Options from Sodium and compatible mods are converted into YACL categories, giving a unified look and feel.
+
+## Supported versions
+
+| Minecraft | Sodium | Status |
+|-----------|--------|--------|
+| 1.21.11   | 0.8.7  | Supported |
+| 1.21.5    | 0.6.x  | Dropped (legacy, see original repo) |
+| 1.21.3    | 0.6.x  | Dropped (legacy, see original repo) |
+| 1.21.1    | 0.6.x  | Dropped (legacy, see original repo) |
+
+## Mod compatibility
+
+- [Iris](https://modrinth.com/mod/iris) — shader pack page replacement
+- [Sodium Extra](https://modrinth.com/mod/sodium-extra) — *temporarily disabled*, pending new API adaptation
+- [More Culling](https://modrinth.com/mod/moreculling) — *temporarily disabled*, pending new API adaptation
+
+Other mods that integrate with Sodium's GUI should work automatically. If something breaks, open an issue.
+
+## Building
+
+```bash
+# Prerequisites: JDK 21, NTFS junctions on Windows (see below)
+
+# Build for current version
+gradlew.bat build
+
+# Build and collect JARs
+gradlew.bat buildAndCollect
+```
+
+On Windows without admin privileges, create NTFS junctions before building:
+
+```cmd
+mklink /J versions\1.21.11\src src
+```
+
+## License
+
+[LGPL-3.0-or-later](LICENSE.md) — same as the original project.

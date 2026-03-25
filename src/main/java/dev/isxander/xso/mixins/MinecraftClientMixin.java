@@ -8,17 +8,15 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-import net.caffeinemc.mods.sodium.client.gui.SodiumOptionsGUI;
+import net.caffeinemc.mods.sodium.client.gui.VideoSettingsScreen;
 
 @Mixin(MinecraftClient.class)
 public class MinecraftClientMixin {
     @ModifyVariable(method = "setScreen", at = @At("HEAD"), argsOnly = true)
     private Screen modifyScreen(Screen screen) {
-        if (XandersSodiumOptions.shouldConvertGui() && screen instanceof SodiumOptionsGUI sodiumOptionsGUI) {
-            var accessor = (SodiumOptionsGUIAccessor) sodiumOptionsGUI;
-            var target = XandersSodiumOptions.wrapSodiumScreen(sodiumOptionsGUI, accessor.getPages(), accessor.getPrevScreen());
-
-            return target;
+        if (XandersSodiumOptions.shouldConvertGui() && screen instanceof VideoSettingsScreen videoSettingsScreen) {
+            var accessor = (VideoSettingsScreenAccessor) videoSettingsScreen;
+            return XandersSodiumOptions.wrapSodiumScreen(videoSettingsScreen, accessor.getPrevScreen());
         }
 
         return screen;

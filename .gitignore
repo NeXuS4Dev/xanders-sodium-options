@@ -2,4 +2,15 @@ run
 build
 /.idea
 .gradle
+versions/*/src
+versions/*/build
+versions/*/out
+*.jar
+*.zip
+sodium-inspect/
+.project
+.classpath
+.factorypath
+.settings/
+bin/
 !.gitkeep
