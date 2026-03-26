@@ -14,10 +14,8 @@ Xander's Sodium Options replaces Sodium's settings screen with a Minecraft-style
 
 | Minecraft | Sodium | Status |
 |-----------|--------|--------|
+| 26.1      | 0.8.7  | Planned (waiting for Fabric yarn mappings) |
 | 1.21.11   | 0.8.7  | Supported |
-| 1.21.5    | 0.6.x  | Dropped (legacy, see original repo) |
-| 1.21.3    | 0.6.x  | Dropped (legacy, see original repo) |
-| 1.21.1    | 0.6.x  | Dropped (legacy, see original repo) |
 
 ## Mod compatibility
 
